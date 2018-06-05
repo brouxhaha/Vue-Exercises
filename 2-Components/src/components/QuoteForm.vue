@@ -1,7 +1,7 @@
 <template>
     <div>
         <h4>Add a Quote:</h4>
-        <textarea class="quote-input" @keypress="updateText"></textarea>
+        <textarea class="quote-input" @keyup="updateText"></textarea>
         <button class="button" @click="addQuote">Add Quote</button>
     </div>
 </template>

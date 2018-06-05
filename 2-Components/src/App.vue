@@ -1,8 +1,8 @@
 <template>
     <div class="container">
-        <quote-counter :quotes="quotes"></quote-counter>
+        <quote-counter :quotesNumber="quotes.length"></quote-counter>
         <quote-form :quotes="quotes" @quoteWasAdded="quote = this.value"></quote-form>
-        <quotes-list></quotes-list>
+        <quotes-list :quotes="quotes"></quotes-list>
     </div>
 </template>
 
