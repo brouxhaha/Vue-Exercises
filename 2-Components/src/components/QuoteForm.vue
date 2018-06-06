@@ -21,6 +21,10 @@
             quotes: {
                 type: Array,
                 required: true
+            },
+            maxQuotes: {
+                type: Number,
+                required: true
             }
         },
         methods: {
@@ -33,12 +37,12 @@
                 if(this.quoteText === ''){
                     alert('Please enter some text');
                 } else {
-                    if(this.quotes.length < 10){
-                        quoteBus.addQuote(this.quoteText);
-                        this.quoteText = '';
-                    } else {
-                        alert('Please delete a quote before adding any more.');
+                    if(this.quotes.length >= this.maxQuotes){
+                        return alert('Please delete a quote before adding any more.');
                     }
+
+                    quoteBus.addQuote(this.quoteText);
+                    this.quoteText = '';
                 }
             }
         }

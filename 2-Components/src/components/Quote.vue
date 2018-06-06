@@ -38,5 +38,8 @@
         margin-left: 20px;
         cursor: pointer;
         flex: 1 1 300px;
+        font-family: 'Arizonia', cursive;
+        font-size: 24px;
+        line-height: 1.3;
     }
 </style>

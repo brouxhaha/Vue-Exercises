@@ -2,7 +2,7 @@
     <div class="counter-total">
         <div class="counter" :style="calcWidth()"></div>
         <div class="count">
-            {{ this.quotesNumber }} / {{ this.maxQuotes }}
+            {{ quotesNumber }} / {{ maxQuotes }}
         </div>
     </div>
 </template>
@@ -11,18 +11,22 @@
     export default {
         data: function() {
             return {
-                maxQuotes: 10
+                
             }
         },
         props: {
             quotesNumber: {
                 type: Number,
                 required: true
+            },
+            maxQuotes: {
+                type: Number,
+                required: true
             }
         },
         methods: {
             calcWidth() {
-                return 'transform: scaleX(' + (this.quotesNumber / 10) + ')';
+                return 'transform: scaleX(' + (this.quotesNumber / this.maxQuotes) + ')';
             }
         }
     }    
