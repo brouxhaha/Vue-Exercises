@@ -22,7 +22,7 @@
         },
         methods: {
             calcWidth() {
-                return 'width: ' + (this.quotesNumber * 10) + '%';
+                return 'transform: scaleX(' + (this.quotesNumber / 10) + ')';
             }
         }
     }    
@@ -32,20 +32,21 @@
     .counter-total {
         height: 30px;
         border-radius: 3px;
-        border: 1px solid #444444;
+        box-shadow: 0 0 0 1px #444444;
         background: #dedede;
         position: relative;
+        overflow: hidden;
     }
 
     .counter {
-        width: 0;
-        height: 20px;
+        width: 100%;
+        height: 30px;
         transition: all 0.3s ease;
         background: #bada55;
         position: absolute;
-        top: 5px;
-        box-shadow: 0 1px 2px 1px rgba(40,40,40,0.5);
+        top: 0;
         z-index: 0;
+        transform-origin: left center;
     }
 
     .count {

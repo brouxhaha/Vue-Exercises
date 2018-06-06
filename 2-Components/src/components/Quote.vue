@@ -34,7 +34,9 @@
         padding: 20px;
         border-radius: 5px;
         box-shadow: 0 1px 3px 0 rgba(255, 0, 255, 0.5);
+        margin-top: 20px;
         margin-left: 20px;
         cursor: pointer;
+        flex: 1 1 300px;
     }
 </style>

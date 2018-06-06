@@ -36,7 +36,9 @@
         padding: 0;
         margin: 0;
         display: flex;
+        flex-flow: row wrap;
         margin-left: -20px;
+        margin-top: -20px;
     }
 
     .centered {
