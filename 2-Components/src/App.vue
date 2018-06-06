@@ -29,9 +29,20 @@
                 this.quotes.push(quote);
                 console.log(this.quotes);
             });
+
+            quoteBus.$on('quoteWasDeleted', (index) => {
+                this.quotes.splice(index, 1);
+            });
         }
     }
 </script>
 
 <style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .container {
+        margin: 30px auto;
+    }
 </style>

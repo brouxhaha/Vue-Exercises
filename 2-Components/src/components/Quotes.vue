@@ -1,11 +1,11 @@
 <template>
     <div>
         <ul v-if="this.quotes.length">
-            <the-quote v-for="quote in this.quotes">
+            <the-quote v-for="(quote, index) in this.quotes" :index="index">
                 {{ quote }}
             </the-quote>
         </ul>
-        <p v-else>There are no quotes to display. Please add a new quote.</p>
+        <p v-else class="centered">There are no quotes to display. Please add a new quote.</p>
     </div>
 </template>
 
@@ -29,3 +29,17 @@
         }
     }    
 </script>
+
+<style scoped>
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        margin-left: -20px;
+    }
+
+    .centered {
+        text-align: center;
+    }
+</style>
