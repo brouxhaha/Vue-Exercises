@@ -27,7 +27,6 @@
         created() {
             quoteBus.$on('quoteWasAdded', (quote) => {
                 this.quotes.push(quote);
-                console.log(this.quotes);
             });
 
             quoteBus.$on('quoteWasDeleted', (index) => {

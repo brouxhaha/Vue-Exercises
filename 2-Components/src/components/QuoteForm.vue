@@ -1,8 +1,10 @@
 <template>
     <div class="quote-form">
-        <h4>Add a Quote:</h4>
-        <textarea class="quote-input" @keyup="updateText"></textarea>
-        <p class="centered"><button class="button" @click="addQuote">Add Quote</button></p>
+        <form>
+            <label>Add a Quote:</label>
+            <textarea class="quote-input" rows="3" v-model="quoteText"></textarea>
+            <p class="centered"><button class="button" @click.prevent="addQuote">Add Quote</button></p>
+        </form>
     </div>
 </template>
 
@@ -22,19 +24,18 @@
             }
         },
         methods: {
-            updateText() {
+            /*updateText() {
                 this.quoteText = event.target.value;
                 //console.log(this.quoteText);
-            },
+            },*/
 
             addQuote() {
-                var textBox = document.querySelector('textarea');
-                if(textBox.value === ''){
+                if(this.quoteText === ''){
                     alert('Please enter some text');
                 } else {
                     if(this.quotes.length < 10){
                         quoteBus.addQuote(this.quoteText);
-                        textBox.value = '';
+                        this.quoteText = '';
                     } else {
                         alert('Please delete a quote before adding any more.');
                     }
