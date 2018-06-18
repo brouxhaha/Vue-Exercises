@@ -5,7 +5,9 @@
                 <h1>Routing</h1>
                 <hr>
                 <router-view name="header-top"></router-view>
-                <router-view></router-view>
+                <transition name="slide" mode="out-in">
+                    <router-view></router-view>
+                </transition>
                 <router-view name="header-bottom"></router-view>
             </div>
         </div>
@@ -23,4 +25,45 @@
 </script>
 
 <style>
+    .slide-enter {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    
+    .slide-enter-active {
+        opacity: 1;
+        //transform: translateY(0);
+        animation: slide-in 0.6s ease-in forwards;
+        transition: all 0.6s ease-in;
+    }
+
+    .slide-leave {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .slide-leave-active {
+        transition: all 0.6s ease-in;
+        opacity: 1;
+        animation: slide-out 0.6s ease-in forwards;
+    }
+
+    @keyframes slide-in {
+        from {
+            transform: translateY(-30px);
+        }
+        to {
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slide-out {
+        from {
+            transform: translateY(0);
+        }
+
+        to {
+            transform: translateY(-30px);
+        }
+    }
 </style>

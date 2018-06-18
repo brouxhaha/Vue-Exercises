@@ -7,7 +7,16 @@ Vue.use(VueRouter);
 
 const router = new VueRouter({
   routes,
-  mode: 'history' /* overrides the hash in url - need to configure the server to work Vue-Router docs describe how to do so */
+  mode: 'history', /* overrides the hash in url - need to configure the server to work Vue-Router docs describe how to do so */
+  scrollBehavior(to, from, savedPosition){
+    if(savedPosition) {
+      return savedPosition;
+    }
+    if(to.hash){
+      return { selector: to.hash };
+    } 
+    return {x: 0, y: 700};
+  }
 });
 
 new Vue({
