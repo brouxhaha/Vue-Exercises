@@ -16,6 +16,15 @@
                 },
                 hash: '#data'
             }
+        },
+        beforeRouteEnter(to, from, next){
+            // do check to see if component should be loaded (ie: user is logged in, has credentials, etc.)
+            if(true) {
+                next();
+            } else {
+                next(false);
+            }
+            next();
         }
     }
 </script>
