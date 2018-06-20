@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Monster Slayer</title>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="css/foundation.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <style>
+        .fade-enter {
+            opacity: 0;
+        }
+        
+        .fade-enter-active {
+            opacity: 1;
+            transition: all 0.3s ease-in;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <section class="row">
+            <div class="small-6 columns">
+                <h1 class="text-center">YOU</h1>
+                <div class="healthbar">
+                    <div class="healthbar text-center" :style="{width: playerHealth + '%'}" style="background-color: green; margin: 0; color: white;">
+                        {{ playerHealth }}
+                    </div>
+                </div>
+            </div>
+            <div class="small-6 columns">
+                <h1 class="text-center">MONSTER</h1>
+                <div class="healthbar">
+                    <div class="healthbar text-center" :style="{width: monsterHealth + '%'}" style="background-color: green; margin: 0; color: white;">
+                        {{ monsterHealth }}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <template v-if="notPlaying">
+            <section class="row controls">
+                <div class="small-12 columns">
+                    <button id="start-game" @click="startGame">START NEW GAME</button>
+                </div>
+            </section>
+        </template>
+        <template v-else>
+            <section class="row controls">
+                <div class="small-12 columns">
+                    <button id="attack" @click="attackMonster">ATTACK</button>
+                    <button id="special-attack" @click="specialAttack">SPECIAL ATTACK</button>
+                    <button id="heal" @click="healPlayer">HEAL</button>
+                    <button id="give-up" @click="quitGame">GIVE UP</button>
+                </div>
+            </section>
+        </template>
+        <transition name="fade">
+            <section class="row log" v-if="actions.length">
+                <div class="small-12 columns">
+                    <ul>
+                        <transition-group name="fade">
+                            <li v-for="(action, i) in actions" :class="action.player ? playerTurn : monsterTurn" :key="action.id">
+                                {{ action.text }}
+                            </li>
+                        </transition-group>
+                    </ul>
+                </div>
+            </section>
+        </transition>
+    </div>
+    <script src="app.js">
+    </script>
+</body>
+
+</html>
