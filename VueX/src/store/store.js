@@ -7,6 +7,7 @@ export const store = new Vuex.Store({
     state: {
         counter: 0
     },
+    /* gettters allow us to access the state */
     getters: {
         doubleCounter: state => {
             return state.counter * 2;
@@ -15,6 +16,7 @@ export const store = new Vuex.Store({
             return state.counter + ' Clicks';
         }
     },
+    /* mutations are methods that allow us to change the state */
     mutations: {
         increment: (state, payload) => {
             state.counter += payload;
@@ -23,6 +25,7 @@ export const store = new Vuex.Store({
             state.counter -= payload;
         }
     },
+    /* actions allow us to commit mutations */
     actions: {
         increment: ({ commit }, payload) => {
             commit('increment', payload);
