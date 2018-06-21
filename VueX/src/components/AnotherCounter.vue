@@ -6,6 +6,7 @@
 </template>
 
 <script>
+    /* to use spread operator (...), need to `npm install --save-dev bable-preset-stage-2`, then update .babelrc and add `["stage2"]  */
     import { mapActions } from 'vuex';
     export default {
         methods: {
