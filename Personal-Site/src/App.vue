@@ -1,8 +1,8 @@
 <template>
     <div class="container">
-        <div class="panel panel--main">
+        <div class="panel--main">
             <app-header></app-header>
-            <div class="wrapper">
+            <div class="wrapper content">
                 <router-view name="main-panel"></router-view>
             </div>
         </div>
@@ -38,10 +38,8 @@ html {
     --main-warm: #FF9600;
     --main-cool: #151E30;
     --alt-cool: #2A7F70;
-    /*rgb: 21, 30, 48*/
     font-family: 'pragmatica';
     color: var(--black);
-    background: rgba($main-cool, 0.75);
     line-height: 1.4;
 }
 
@@ -63,5 +61,9 @@ img {
 .wrapper {
     margin: 0 auto;
     width: 90%;
+}
+
+.content {
+    position: relative;
 }
 </style>
