@@ -33,6 +33,7 @@
         grid-gap: 50px;
         align-items: center;
         max-width: 1050px;
+        margin: 0 auto;
     }
 
     h1 {

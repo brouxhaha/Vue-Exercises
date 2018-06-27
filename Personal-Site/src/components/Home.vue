@@ -1,6 +1,17 @@
 <template>
     <div class="panel panel--odd">
         <h2 class="panel__heading">Work</h2>
+        <div class="wrapper work grid">
+            <div class="grid__split">
+                <p>My work is a combination of design and development. Outside a few cases, I have designed every site I have developed. I focus on creating user-friendly designs that aim to accomplish the client’s goals. </p>
+                <p>I utilize the latest HTML and CSS while adding JavaScript for interactivity and functionality. When possible, I used the latest, greatest CSS with fallbacks for browsers that need them.</p>
+            </div>
+            <div class="grid__split">
+                <div class="project--main">
+                    <img src="../assets/travel-alaska_initial_2000x1200.jpg">
+                </div>
+            </div>
+        </div>
     </div>
     <!--<Projects></Projects>-->
 </template>
@@ -53,6 +64,8 @@
         text-transform: uppercase;
         margin-top: 0;
         position: relative;
+        padding-left: 5%;
+        margin-bottom: 2rem;
 
         &:after {
             content: '';
@@ -67,6 +80,28 @@ background: linear-gradient(90deg, rgba(255,150,0,1) 0%, rgba(255,150,0,1) 60%, 
             bottom: 0;
             left: 0;
             //box-shadow: 20px 0 0 3px $main-warm;
+        }
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 100px;
+    }
+
+    .project--main {
+        padding-left: 15px;
+        position: relative;
+        
+        &:after {
+            content: '';
+            width: 3px;
+            height: 70%;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--main-warm);
         }
     }
 </style>
