@@ -43,6 +43,10 @@ html {
     line-height: 1.4;
 }
 
+body {
+    font-size: 1.5rem;
+}
+
 a {
     text-decoration: none;
     color: white;
@@ -61,6 +65,7 @@ img {
 .wrapper {
     margin: 0 auto;
     width: 90%;
+    max-width: 1500px;
 }
 
 .content {

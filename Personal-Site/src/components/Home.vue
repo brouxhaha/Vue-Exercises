@@ -9,16 +9,23 @@
                 </div>
                 <div class="project--main">
                     <div class="project--main__image">
-                        <img src="../assets/travel-alaska_initial_2000x1200.jpg">
+                        <router-link to="/projects/projects[0].id" class="link-block project__link">
+                            <img :src="projects[0].homeImg" class="project__img">
+                            <h3 class="project__name">
+                                {{ projects[0].name }}
+                            </h3>
+                        </router-link>
                     </div>
                 </div>
 
                 <div class="projects grid--projects">
-                    <div class="project__item" v-for="(project, key, index) in projects" v-if="index !== 0">
-                        <img :src="project.homeImg" class="project__img">
-                        <h3 class="project__name">
-                            {{ project.name }}
-                        </h3>
+                    <div class="project__item" v-for="(project, index) in projects" v-if="index !== 0">
+                        <router-link to="/projects/project.id" class="project__link link-block">
+                            <img :src="project.homeImg" class="project__img">
+                            <h3 class="project__name">
+                                {{ project.name }}
+                            </h3>
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -33,28 +40,32 @@
     export default {
         data() {
             return {
-                projects: {
-                    TravelAlaska: {
+                projects: [
+                    {
+                        id: 'travel-alaska',
                         name: 'State of Alaska & Alaska Travel Industry Association',
                         description: '',
                         homeImg: '/src/assets/travel-alaska_initial_2000x1200.jpg'
                     },
-                    AnchorageLibrary: {
+                    {
+                        id: 'anchorage-library',
                         name: 'Anchorage Public Library',
                         description: '',
                         homeImg: '/src/assets/anchorage-library_initial_2000x1200.jpg'
                     },
-                    VisitKetchikan: {
+                    {
+                        id: 'visit-ketchikan',
                         name: 'City of Ketchikan',
                         description: '',
                         homeImg: '/src/assets/visit-ketchikan_initial_2000x1200.jpg'
                     },
-                    AnchorageMuseum: {
+                    {
+                        id: 'anchorage-museum',
                         name: 'Anchorage Museum',
                         description: '',
                         homeImg: '/src/assets/anchorage-museum_initial_2000x1200.jpg'
                     }
-                }
+                ]
             }
         }
         /*components: {
@@ -167,16 +178,6 @@ background: linear-gradient(90deg, rgba(255,150,0,1) 0%, rgba(255,150,0,1) 60%, 
         box-shadow: 5px 0 3px 0 rgba($main-cool, 0.5);
         position: relative;
 
-        &:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background: linear-gradient(180deg, rgba($main-cool, 0) 0%, rgba($main-cool, 1) 100%);
-        }
-
         &:first-child {
             z-index: 2;
         }
@@ -217,7 +218,23 @@ background: linear-gradient(90deg, rgba(255,150,0,1) 0%, rgba(255,150,0,1) 60%, 
         display: block;
     }
 
+    .project__link {
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(180deg, rgba($main-cool, 0) 0%, rgba($main-cool, 1) 100%);
+        }
+    }
+
     .spacing {
         margin-bottom: 5rem;
+    }
+
+    .link-block {
+        display: block;
     }
 </style>
