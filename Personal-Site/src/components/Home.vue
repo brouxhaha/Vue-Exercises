@@ -9,7 +9,7 @@
                 </div>
                 <div class="project--main">
                     <div class="project--main__image">
-                        <router-link :to="`/projects/${projects[0].id}`" class="link-block project__link" :theProject="projects[0]">
+                        <router-link :to="{ name: 'project', params: {id: `${projects[0].id}`, projectIndex: index}}" class="link-block project__link" :theProject="projects[0]">
                             <img :src="projects[0].homeImg" class="project__img">
                             <h3 class="project__name">
                                 {{ projects[0].name }}
@@ -20,7 +20,7 @@
 
                 <div class="projects grid--projects">
                     <div class="project__item" v-for="(project, index) in projects" :key="index" v-if="index !== 0">
-                        <router-link :to="{ path: `/projects/${project.id}`}" class="project__link link-block" :project="project">
+                        <router-link :to="{ path: `/projects/${project.id}`, params: {index: index}}" class="project__link link-block" :project="project">
                             <img :src="project.homeImg" class="project__img">
                             <h3 class="project__name">
                                 {{ project.name }}

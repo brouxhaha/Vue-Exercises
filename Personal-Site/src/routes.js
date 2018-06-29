@@ -5,19 +5,19 @@ import MainPanelProject from './components/MainPanels/MainPanelProject.vue';
 
 
 export const routes = [{
-        path: '',
         name: 'home',
+        path: '',        
         components: {
             default: Home,
             'main-panel': MainPanelHome
         }
     },
     {
+        name: 'project',
         path: '/projects/:id',
         components: {
             default: Project,
-            'main-panel': MainPanelProject,
-            props: { default: true, 'main-panel': true }
+            'main-panel': MainPanelProject
         }
     },
     { path: '*', redirect: '/' }
