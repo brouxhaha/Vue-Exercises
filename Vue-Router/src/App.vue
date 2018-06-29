@@ -32,7 +32,6 @@
     
     .slide-enter-active {
         opacity: 1;
-        //transform: translateY(0);
         animation: slide-in 0.6s ease-in forwards;
         transition: all 0.6s ease-in;
     }

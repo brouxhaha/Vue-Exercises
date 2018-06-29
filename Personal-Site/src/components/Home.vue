@@ -9,7 +9,7 @@
                 </div>
                 <div class="project--main">
                     <div class="project--main__image">
-                        <router-link to="/projects/projects[0].id" class="link-block project__link">
+                        <router-link :to="`/projects/${projects[0].id}`" class="link-block project__link" :theProject="projects[0]">
                             <img :src="projects[0].homeImg" class="project__img">
                             <h3 class="project__name">
                                 {{ projects[0].name }}
@@ -19,8 +19,8 @@
                 </div>
 
                 <div class="projects grid--projects">
-                    <div class="project__item" v-for="(project, index) in projects" v-if="index !== 0">
-                        <router-link to="/projects/project.id" class="project__link link-block">
+                    <div class="project__item" v-for="(project, index) in projects" :key="index" v-if="index !== 0">
+                        <router-link :to="{ path: `/projects/${project.id}`}" class="project__link link-block" :project="project">
                             <img :src="project.homeImg" class="project__img">
                             <h3 class="project__name">
                                 {{ project.name }}
@@ -35,9 +35,14 @@
 </template>
 
 <script>
-    /*import Projects from './components/projects/Projects.vue'*/
-
+    /*import Projects from './components/projects/Projects.vue';*/
+    
     export default {
+         computed: {
+            projects() {
+                return this.$store.state.projects;
+            } 
+         }/*
         data() {
             return {
                 projects: [
@@ -67,7 +72,7 @@
                     }
                 ]
             }
-        }
+        }*/
         /*components: {
             Projects: Projects
         }*/

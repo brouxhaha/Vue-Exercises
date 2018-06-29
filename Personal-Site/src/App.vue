@@ -3,11 +3,15 @@
         <div class="panel--main">
             <app-header></app-header>
             <div class="wrapper content">
-                <router-view name="main-panel"></router-view>
+                <transition>
+                    <router-view name="main-panel"></router-view>
+                </transition>
             </div>
         </div>
         <main class="content--main">
-            <router-view></router-view>
+            <transition>
+                <router-view></router-view>
+            </transition>
         </main>
     </div>
 </template>
