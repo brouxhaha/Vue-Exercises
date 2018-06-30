@@ -3,13 +3,13 @@
         <div class="panel--main">
             <app-header></app-header>
             <div class="wrapper content">
-                <transition>
+                <transition name="fade" mode="out-in">
                     <router-view name="main-panel"></router-view>
                 </transition>
             </div>
         </div>
         <main class="content--main">
-            <transition>
+            <transition name="fade" mode="out-in">
                 <router-view></router-view>
             </transition>
         </main>
@@ -29,6 +29,24 @@
 <style lang="sass">
     @import './scss/reset.scss';
 
+
+.fade-enter {
+        opacity: 0;
+    }
+
+    .fade-enter-active {
+        opacity: 1;
+        transition: opacity 0.3s ease-in;
+    }
+
+    .fade-leave {
+        opacity: 1;
+    }
+
+    .fade-leave-active {
+        opacity: 0;
+        transition: opacity 0.3s ease-out;
+    }
 
 /* #Site Specific
 ================================================== */
