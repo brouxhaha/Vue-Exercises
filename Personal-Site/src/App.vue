@@ -2,8 +2,8 @@
     <div class="container">
         <div class="panel--main">
             <app-header></app-header>
-            <div class="wrapper content">
-                <transition name="fade" mode="out-in">
+            <div class="wrapper relative">
+                <transition name="grow" mode="out-in">
                     <router-view name="main-panel"></router-view>
                 </transition>
             </div>
@@ -29,14 +29,12 @@
 <style lang="sass">
     @import './scss/reset.scss';
 
-
-.fade-enter {
+    .fade-enter {
         opacity: 0;
     }
 
     .fade-enter-active {
-        opacity: 1;
-        transition: opacity 0.3s ease-in;
+        animation: fade-in 0.2s ease-in forwards;
     }
 
     .fade-leave {
@@ -44,8 +42,64 @@
     }
 
     .fade-leave-active {
-        opacity: 0;
-        transition: opacity 0.3s ease-out;
+        animation: fade-out 0.2s ease-out forwards;
+    }
+
+    .grow-enter {
+        transform: scale(0);
+    }
+
+    .grow-enter-active {
+        animation: grow-in 0.2s ease-in forwards;
+    }
+
+    .grow-leave {
+        transform: scale(1);
+        transform-origin: 50%;
+    }
+
+    .grow-leave-active {
+        animation: grow-out 0.2s ease-out forwards;
+    }
+
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fade-out {
+        from {
+            opacity: 1;
+        }
+        
+        to {
+            opacity: 0;
+        }
+    }
+
+    @keyframes grow-in {
+        from {
+            transform: scale(0);
+        }
+
+        to {
+            transform: scale(1);
+        }
+    }
+
+    @keyframes grow-out {
+        from {
+            transform: scale(1);
+        }
+        
+        to {
+            transform: scale(0);
+        }
     }
 
 /* #Site Specific
@@ -66,7 +120,11 @@ html {
 }
 
 body {
-    font-size: 1.5rem;
+    font-size: 1rem;
+
+    @media (min-width: 800px){
+        font-size: 1.5rem;
+    }
 }
 
 a {
@@ -90,7 +148,7 @@ img {
     max-width: 1500px;
 }
 
-.content {
+.relative {
     position: relative;
 }
 </style>

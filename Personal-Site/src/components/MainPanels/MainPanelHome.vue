@@ -29,17 +29,50 @@
 
     .home__about {
         display: grid;
-        grid-template-columns: 1fr 1fr;
         grid-gap: 50px;
         align-items: center;
         max-width: 1050px;
         margin: 0 auto;
+
+        @media (min-width: 600px){
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    .home__greeting {
+        @media (min-width: 600px){
+            grid-column: 1;
+        }
+    }
+
+    .home__portrait {
+        grid-row: 1;
+
+        @media (min-width: 600px){
+            grid-row: 1;
+            grid-column: 2;
+        }
+    }
+
+    .portrait__img {
+        max-width: 300px;
+        margin: 0 auto;
+        display: block;
+
+        @media (min-width: 600px){
+            max-width: 100%;
+        }
     }
 
     h1 {
-        font-size: 3rem;
+        font-size: 2rem;
         text-align: center;
         margin-bottom: 3rem;
+        margin-top: 0;
+
+        @media (min-width: 600px){
+            font-size: 3rem;
+        }
     }
 
     .list--description {
@@ -50,7 +83,6 @@
         text-align: center;
         
         margin: 0 auto 2rem;
-        font-size: 1.5rem;
     }
 
     .list--description__item {

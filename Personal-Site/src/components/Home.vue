@@ -5,11 +5,11 @@
             <div class="work grid--work">
                 <div class="work__text">
                     <p>My work is a combination of design and development. Outside a few cases, I have designed every site I have developed. I focus on creating user-friendly designs that aim to accomplish the client’s goals. </p>
-                    <p>I utilize the latest HTML and CSS while adding JavaScript for interactivity and functionality. When possible, I used the latest, greatest CSS with fallbacks for browsers that need them.</p>
+                    <p>I utilize the latest HTML and CSS while adding JavaScript for interactivity and functionality. I use the latest, greatest CSS with fallbacks for browsers that need them.</p>
                 </div>
                 <div class="project--main">
                     <div class="project--main__image">
-                        <router-link :to="{ name: 'project', params: {id: `${projects[0].id}`, projectIndex: index}}" class="link-block project__link" :theProject="projects[0]">
+                        <router-link :to="{ name: 'project', params: {id: `${projects[0].id}`, projectIndex: index}}" class="link-block project__link">
                             <img :src="projects[0].homeImg" class="project__img">
                             <h3 class="project__name">
                                 {{ projects[0].name }}
@@ -20,7 +20,7 @@
 
                 <div class="projects grid--projects">
                     <div class="project__item" v-for="(project, index) in projects" :key="index" v-if="index !== 0">
-                        <router-link :to="{ path: `/projects/${project.id}`, params: {index: index}}" class="project__link link-block" :project="project">
+                        <router-link :to="{ path: `/projects/${project.id}`, params: {index: index}}" class="project__link link-block">
                             <img :src="project.homeImg" class="project__img">
                             <h3 class="project__name">
                                 {{ project.name }}
@@ -144,45 +144,24 @@ background: linear-gradient(90deg, rgba(255,150,0,1) 0%, rgba(255,150,0,1) 60%, 
 
     .grid--work {
         display: grid;
-        grid-gap: 100px 50px;
-        align-items: center;
-    }
+        grid-template-rows: auto;
 
-    .work__text {
-        grid-column: 1 / 4;
-    }
-
-    .project--main {
-        grid-column: 4 / 7;
-    }
-
-    .project--main__image {
-        position: relative;
-        padding-left: 15px;
-
-        &:after {
-            content: '';
-            width: 3px;
-            height: 70%;
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--main-warm);
+        @media (min-width: 650px){
+            grid-gap: 100px 50px;
+            align-items: center;
         }
     }
 
-    .grid--projects {
-        display: grid;
-        grid-column: 1 / 7;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 0;
+    .project__item, .project--main {
+        box-shadow: 0 5px 3px 0 rgba($main-cool, 0.5);
+        position: relative;
+    }
+
+    .project--main {
+        z-index: 3;
     }
 
     .project__item {
-        box-shadow: 5px 0 3px 0 rgba($main-cool, 0.5);
-        position: relative;
-
         &:first-child {
             z-index: 2;
         }
@@ -196,26 +175,79 @@ background: linear-gradient(90deg, rgba(255,150,0,1) 0%, rgba(255,150,0,1) 60%, 
         }
     }
 
+    @media (min-width: 650px){
+        .work__text {
+            grid-column: 1 / 4;
+        }
+
+        .project--main {
+            grid-column: 4 / 7;
+            box-shadow: 0 3px 3px 0 rgba($main-cool, 0.5);
+        }
+
+        .grid--projects {
+            display: grid;
+            grid-column: 1 / 7;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 0;
+        }
+    
+        .project--main__image {
+            position: relative;
+
+            &:after {
+                content: '';
+                width: 1px;
+                height: 70%;
+                position: absolute;
+                left: -25px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: var(--main-warm);
+            }
+        }
+    
+        .project__item {
+            box-shadow: 5px 0 3px 0 rgba($main-cool, 0.5);
+            position: relative;
+
+            &:first-child {
+                z-index: 2;
+            }
+
+            &:nth-child(2) {
+                z-index: 1;
+            }
+
+            &:nth-child(3) {
+                z-index: 0;
+            }
+        }
+    }
+
     .project__name {
         font-size: 1.25rem;
+        font-weight: normal;
         line-height: 1;
         text-align: center;
         position: absolute;
+        width: 90%;
         top: 50%;
+        left: 5%;
         transform: translateY(-50%);
-        width: 100%;
         margin: 0;
         text-shadow: 0 1px 6px rgba($black, 0.5);
 
         &:after {
             content: '';
             height: 3px;
-            width: 100px;
+            width: 100%;
             position: absolute;
             bottom: -10px;
             background: var(--main-warm);
             left: 50%;
-            transform: translateX(-50%);
+            transform: translateX(-50%) scaleX(0.25);
+            transition: transform 0.25s ease;
         }
     }
     
@@ -224,6 +256,8 @@ background: linear-gradient(90deg, rgba(255,150,0,1) 0%, rgba(255,150,0,1) 60%, 
     }
 
     .project__link {
+        
+
         &:before {
             content: '';
             position: absolute;
@@ -232,6 +266,10 @@ background: linear-gradient(90deg, rgba(255,150,0,1) 0%, rgba(255,150,0,1) 60%, 
             bottom: 0;
             left: 0;
             background: linear-gradient(180deg, rgba($main-cool, 0) 0%, rgba($main-cool, 1) 100%);
+        }
+
+        &:hover .project__name:after {
+            transform: translateX(-50%) scaleX(1);
         }
     }
 
