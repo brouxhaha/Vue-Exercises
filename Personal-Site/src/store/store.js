@@ -15,20 +15,20 @@ export const store = new Vuex.Store({
                 website: 'https://www.travelalaska.com'
             },
             {
-                id: 'anchorage-library',
-                name: 'Anchorage Public Library',
-                launchDate: 'February 2018',
-                description: 'The Anchorage Public Library was in desperate need of a redesign. The overall site looked extremely dated, and it was difficult to find anything on the home page because of how cluttered it was: there were links everywhere and images linking to programs and services had no text indicating what they were or even the name (unless the image actually had the name in it).</p><p>The design we went with was inspired by my work on the Anchorage Museum, which the Library really liked—a more open feel with little to distract from the content and headings that really separated sections of content. The site structure was reorganized and really helped distinguish the content.</p>',
-                homeImg: '/src/assets/anchorage-library_initial_2000x1200.jpg',
-                website: 'https://www.visit-ketchikan.com'
-            },
-            {
                 id: 'visit-ketchikan',
                 name: 'City of Ketchikan',
-                launchDate: 'January 2018',
+                launchDate: 'February 2018',
                 description: 'The city of Ketchikan is a cruise port in Southwest Alaska. The prior design used background images with content laid over most of them. It also used some smaller images scattered throughout the site. The home page had a slideshow and a couple boxes leading off to other areas of the site. The goal of this latest design was to incorporate larger and more interesting imagery. It also needed to tie the site together with the Ketchikan Stories website—the reason I went with a dark background.</p><p>Ketchikan is such an interesting place with great cultural history and awesome nature nearby. I felt a video would better portray these aspects of the city, so the banner images became a looped video with multiple links just underneath to the points of emphasis.',
                 homeImg: '/src/assets/visit-ketchikan_initial_2000x1200.jpg',
                 website: 'http://www.anchoragelibrary.org'
+            },
+            {
+                id: 'anchorage-library',
+                name: 'Anchorage Public Library',
+                launchDate: 'November 2017',
+                description: 'The Anchorage Public Library was in desperate need of a redesign. The overall site looked extremely dated, and it was difficult to find anything on the home page because of how cluttered it was: there were links everywhere and images linking to programs and services had no text indicating what they were or even the name (unless the image actually had the name in it).</p><p>The design we went with was inspired by my work on the Anchorage Museum, which the Library really liked—a more open feel with little to distract from the content and headings that really separated sections of content. The site structure was reorganized and really helped distinguish the content.</p>',
+                homeImg: '/src/assets/anchorage-library_initial_2000x1200.jpg',
+                website: 'https://www.visit-ketchikan.com'
             },
             {
                 id: 'anchorage-museum',
