@@ -31,6 +31,33 @@
             </div>
         </div>
     </div>
+
+    <div class="panel panel--even">
+        <h2 class="panel__heading">Current</h2>
+        <div class="wrapper">
+            <div class="work grid--work">
+                <div class="learning">
+                    <h3>Learning</h3>
+                    <p>I am constantly looking to improve myself as both a developer and designer.</p>
+                    <p>I've recently finished a few JavaScript courses to help improve my development knowledge:</p>
+                    <ul>
+                        <li>JavaScript30</li>
+                        <li>LearnNode</li>
+                    </ul>
+                    <p>I am currently nearing the end of a Vue.js course. I decided I needed to learn a JS framework, and I decided on Vue because it both interesting and like an easier place to begin.</p>
+                </div>
+                <div class="projects">
+                    <h3>Projects</h3>
+                    <p>Projects are how I reinforce my learning. This site is the perfect example, as it is built in Vue.js to utilize the skills I've learned in the Vue.js course I am currently working through. </p>
+                    <p>It's been a while, but I have a couple app ideas I intend to continue building in order to support and strengthen my Node.js knowledge.</p>
+                    <ul>
+                        <li>A recipe app</li>
+                        <li>A family photo album app</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--<Projects></Projects>-->
 </template>
 
