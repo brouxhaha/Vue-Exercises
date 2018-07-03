@@ -1,6 +1,7 @@
 <template>
     <div class="container">
-        <div class="panel--main">
+        <div class="panel--main relative">
+            <img src="./assets/triangle.svg" class="header__svg">
             <app-header></app-header>
             <div class="wrapper relative">
                 <transition name="grow" mode="out-in">
@@ -28,6 +29,14 @@
 
 <style lang="sass">
     @import './scss/reset.scss';
+
+    .header__svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        max-height: 100%;
+    }
 
     .fade-enter {
         opacity: 0;
