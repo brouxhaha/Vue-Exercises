@@ -1,59 +1,61 @@
 <template>
-    <div class="panel panel--odd">
-        <h2 class="panel__heading">Work</h2>
-        <div class="wrapper">
-            <div class="work grid--work">
-                <div class="work__text">
-                    <p>My work is a combination of design and development. Outside a few cases, I have designed every site I have developed. I focus on creating user-friendly designs that aim to accomplish the client’s goals. </p>
-                    <p>I utilize the latest HTML and CSS while adding JavaScript for interactivity and functionality. I use the latest, greatest CSS with fallbacks for browsers that need them.</p>
-                </div>
-                <div class="project--main">
-                    <div class="project--main__image">
-                        <router-link :to="{ name: 'project', params: {id: `${projects[0].id}`, projectIndex: index}}" class="link-block project__link">
-                            <img :src="projects[0].homeImg" class="project__img">
-                            <h3 class="project__name">
-                                {{ projects[0].name }}
-                            </h3>
-                        </router-link>
+    <div>
+        <div class="panel panel--odd">
+            <h2 class="panel__heading">Work</h2>
+            <div class="wrapper">
+                <div class="work grid--work">
+                    <div class="work__text">
+                        <p>My work is a combination of design and development. Outside a few cases, I have designed every site I have developed. I focus on creating user-friendly designs that aim to accomplish the client’s goals. </p>
+                        <p>I utilize the latest HTML and CSS while adding JavaScript for interactivity and functionality. I use the latest, greatest CSS with fallbacks for browsers that need them.</p>
                     </div>
-                </div>
+                    <div class="project--main">
+                        <div class="project--main__image">
+                            <router-link :to="{ name: 'project', params: {id: `${projects[0].id}`, projectIndex: index}}" class="link-block project__link">
+                                <img :src="projects[0].homeImg" class="project__img">
+                                <h3 class="project__name">
+                                    {{ projects[0].name }}
+                                </h3>
+                            </router-link>
+                        </div>
+                    </div>
 
-                <div class="projects grid--projects">
-                    <div class="project__item" v-for="(project, index) in projects" :key="index" v-if="index !== 0">
-                        <router-link :to="{ path: `/projects/${project.id}`, params: {index: index}}" class="project__link link-block">
-                            <img :src="project.homeImg" class="project__img">
-                            <h3 class="project__name">
-                                {{ project.name }}
-                            </h3>
-                        </router-link>
+                    <div class="projects grid--projects">
+                        <div class="project__item" v-for="(project, index) in projects.slice(1)" :key="index">
+                            <router-link :to="{ path: `/projects/${project.id}`, params: {index: index}}" class="project__link link-block">
+                                <img :src="project.homeImg" class="project__img">
+                                <h3 class="project__name">
+                                    {{ project.name }}
+                                </h3>
+                            </router-link>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="panel panel--even">
-        <h2 class="panel__heading">Current</h2>
-        <div class="wrapper">
-            <div class="work grid--work">
-                <div class="learning">
-                    <h3>Learning</h3>
-                    <p>I am constantly looking to improve myself as both a developer and designer. Lately, it's been mostly on the dev side, JavaScript in particular, that I've been putting my focus. I recently finished a few JavaScript courses to help improve my development knowledge and am in the middle of a third:</p>
-                    <ul>
-                        <li><a href="https://javascript30.com">JavaScript30</a></li>
-                        <li><a href="https://learnnode.com">LearnNode</a></li>
-                        <li><a href="https://www.udemy.com/vuejs-2-the-complete-guide/">Vue JS 2 - The Complete Course</a></li>
-                    </ul>
-                    <p>I am currently nearing the end of a Vue.js course. I decided I needed to learn a JS framework, and I decided on Vue because it both interesting and like an easier place to begin.</p>
-                </div>
-                <div class="projects">
-                    <h3>Projects</h3>
-                    <p>Like everyone, I have at least a couple projects to work on, both to reinforce my learning and to see what I can come up with. This site is the perfect example, as it is built in Vue.js to utilize the skills I've learned in the Vue.js course I am currently working through. </p>
-                    <p>It's been a while since I've worked on them, but I have a couple app ideas I intend to continue building in order to support and strengthen my Node.js knowledge:</p>
-                    <ul>
-                        <li>A recipe app</li>
-                        <li>A family photo album app</li>
-                    </ul>
+        <div class="panel panel--even">
+            <h2 class="panel__heading">Current</h2>
+            <div class="wrapper">
+                <div class="current grid--current">
+                    <div class="learning">
+                        <h3 class="panel__subheading">Learning</h3>
+                        <p>I am constantly looking to improve myself as both a developer and designer. Lately, it's been mostly on the dev side, JavaScript in particular, that I've been putting my focus. I recently finished a few JavaScript courses to help improve my development knowledge and am in the middle of a third:</p>
+                        <ul>
+                            <li><a href="https://javascript30.com">JavaScript30</a></li>
+                            <li><a href="https://learnnode.com">LearnNode</a></li>
+                            <li><a href="https://www.udemy.com/vuejs-2-the-complete-guide/">Vue JS 2 - The Complete Course</a></li>
+                        </ul>
+                        <p>I decided I needed to learn a JS framework, and I decided on Vue because it both looked interesting and like an easier place to begin.</p>
+                    </div>
+                    <div class="projects">
+                        <h3 class="panel__subheading">Projects</h3>
+                        <p>Like everyone, I have at least a couple projects to work on, both to reinforce my learning and to see what I can come up with. This site is the perfect example, as it is built in Vue.js to utilize the skills I've learned in the Vue.js course I am currently working through. </p>
+                        <p>It's been a while since I've worked on them, but I have a couple app ideas I intend to continue building in order to support and strengthen my Node.js knowledge:</p>
+                        <ul>
+                            <li>A recipe app</li>
+                            <li>A family photo album app</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -133,19 +135,26 @@
 
     .panel--even {
         background: rgb(21,30,48);
-        background: linear-gradient(180deg, rgba(21,30,48,0.75) 0%, rgba(42,127,112,0.75) 100%);
+        background: linear-gradient(180deg, rgba(42,127,112,0.75) 0%, rgba(21,30,48,0.75) 100%);
     }
 
     .panel__heading {
-        font-size: 5rem;
+        font-size: 2.5rem;
         font-weight: 900;
-        line-height: 0.8;
+        line-height: 1;
+        letter-spacing: -3px;
         color: rgba(white, 0.5);
         text-transform: uppercase;
         margin-top: 0;
         position: relative;
         padding-left: 5%;
         margin-bottom: 2rem;
+
+        @media (min-width: 600px){
+            font-size: 4rem;
+            line-height: 0.85;
+            letter-spacing: -5px;
+        }
 
         &:after {
             content: '';
@@ -163,6 +172,11 @@ background: linear-gradient(90deg, rgba(255,150,0,1) 0%, rgba(255,150,0,1) 60%, 
         }
     }
 
+    .panel__subheading {
+        margin-top: 0;
+        margin-bottom: 0.25rem;
+    }
+
     .grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -176,6 +190,17 @@ background: linear-gradient(90deg, rgba(255,150,0,1) 0%, rgba(255,150,0,1) 60%, 
         @media (min-width: 650px){
             grid-gap: 100px 50px;
             align-items: center;
+        }
+    }
+
+    .grid--current {
+        display: grid;
+        grid-template-rows: auto;
+        grid-gap: 30px;
+
+        @media (min-width: 650px){
+            grid-gap: 50px;
+            grid-template-columns: 1fr 1fr;
         }
     }
 
@@ -256,6 +281,7 @@ background: linear-gradient(90deg, rgba(255,150,0,1) 0%, rgba(255,150,0,1) 60%, 
         font-size: 1.25rem;
         font-weight: normal;
         line-height: 1;
+        color: white;
         text-align: center;
         position: absolute;
         width: 90%;
@@ -283,8 +309,6 @@ background: linear-gradient(90deg, rgba(255,150,0,1) 0%, rgba(255,150,0,1) 60%, 
     }
 
     .project__link {
-        
-
         &:before {
             content: '';
             position: absolute;

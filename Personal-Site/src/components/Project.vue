@@ -1,7 +1,15 @@
 <template>
-    <div class="panel panel--odd">
-        <div class="content">
-            <p v-html="currentProject.description">{{ currentProject.description }}</p>
+    <div>
+        <div class="panel panel--odd">
+            <div class="content">
+                <div class="intro" v-html="currentProject.description">{{ currentProject.description }}</div>
+                <p class="centered"><a :href="`${currentProject.website}`" class="button">View Live Site</a></p>
+            </div>
+        </div>
+        <div class="panel" v-for="(image, index) in currentProject.projectImgs" :key="index" :class="index % 2 === 0 ? 'panel--even' : 'panel--odd'">
+            <div class="content">
+                <img :src="`/src/assets/${currentProject.id}${image}.jpg`">
+            </div>
         </div>
     </div>
 </template>
@@ -34,6 +42,12 @@
         margin-right: auto;
         margin-left: auto;
         width: 90%;
+    }
+
+    @media (min-width: 600px){
+        .intro {
+            font-size: 1.25rem;
+        }
     }
 
     .fade-enter {

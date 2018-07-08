@@ -106,6 +106,7 @@
     }
 
     .button {
+        font-weight: bold;
         background: rgb(26,55,65);
         background: linear-gradient(135deg, rgba(26,55,65,1) 0%, rgba(36,99,93,1) 100%);
         box-shadow: 6px 6px 0 0 rgba($main-cool, 0.5);
@@ -113,6 +114,12 @@
         display: inline-block;
         line-height: 0.9;
         border: 1px solid $main-cool;
+        color: white;
+
+        &:hover {
+            box-shadow: -6px 6px 0 0 rgba(21, 30, 48, 0.5);
+            color: white;
+        }
     }
 
     .centered {

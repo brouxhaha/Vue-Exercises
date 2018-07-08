@@ -30,6 +30,10 @@
 <style lang="sass">
     @import './scss/reset.scss';
 
+    p {
+        margin-top: 0;
+    }
+
     .header__svg {
         position: absolute;
         top: 0;
@@ -131,18 +135,22 @@ html {
 body {
     font-size: 1rem;
 
-    @media (min-width: 800px){
-        font-size: 1.5rem;
+    @media (min-width: 950px){
+        font-size: 1.25rem;
     }
 }
 
 a {
     text-decoration: none;
-    color: white;
+    color: var(--main-warm);
     position: relative;
     -webkit-transition: all .25s ease-in;
     transition: all .25s ease-in;
     font-weight: bold;
+
+    &:hover {
+        color: lighten($main-warm, 20%);
+    }
 }
 
 img {
