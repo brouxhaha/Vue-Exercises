@@ -3,10 +3,11 @@ import Portfolio from './Components/Portfolio.vue';
 import Stocks from './Components/Stocks.vue';
 
 export const routes = [{
-    name: 'Home',
-    path: '',
-    components: {
-        default: Home
+        name: 'Home',
+        path: '',
+        components: {
+            default: Home
+        }
     },
 
     {
@@ -24,6 +25,6 @@ export const routes = [{
             default: Stocks
         }
     },
-    
-    {path: '*', redirect: '/'}
-}];
+
+    { path: '*', redirect: '/' }
+];

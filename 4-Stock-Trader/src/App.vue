@@ -10,10 +10,12 @@
 <script>
     import AppHeader from './Components/Header.vue'
     export default {
-
+        components: {
+            AppHeader: AppHeader
+        }
     }
 </script>
 
 <style>
-
+    
 </style>
