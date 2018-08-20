@@ -13,24 +13,28 @@
                     <li class="nav__subitem cursor">Load Data</li>
                 </ul>
             </li>
-            <li class="nav__item"><strong>Funds: ${{ this.formatFunds }} </strong></li>
+            <li class="nav__item"><strong>Funds: ${{ fundsAvailable }} </strong></li>
         </ul>
     </nav>    
 </template>
 
 <script>
+    import { mapGetters } from 'vuex';
+
     export default {
         data() {
             return {
-                showSubMenu: false,
-                fundsAvailable: this.$store.state.funds
+                showSubMenu: false/*,
+                fundsAvailable: this.$store.state.funds*/
             }
         },
-        computed: {
+        computed: mapGetters([
+            'fundsAvailable'
+        ])/*{
             formatFunds(){
                 return this.fundsAvailable.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
             }
-        },
+        }*/,
         methods: {
             showSaveLoadMenu() {
                 this.showSubMenu = !this.showSubMenu;

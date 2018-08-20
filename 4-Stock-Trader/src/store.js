@@ -6,23 +6,61 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
     state: {
         funds: 10000,
-        stocks: {
-            BMW: {
-                'quantity': 0,
-                'currentPrice': 110
+        stocks: [{
+                name: 'BMW',
+                quantity: 0,
+                currentPrice: 110
             },
-            Google: {
-                'quantity': 0,
-                'currentPrice': 200
+            {
+                name: 'Google',
+                quantity: 0,
+                currentPrice: 200
             },
-            Apple: {
-                'quantity': 0,
-                'currentPrice': 250
+            {
+                name: 'Apple',
+                quantity: 0,
+                currentPrice: 250
             },
-            Twitter: {
-                'quantity': 0,
-                'currentPrice': 8
+            {
+                name: 'Twitter',
+                quantity: 0,
+                currentPrice: 8
             }
+        ]
+    },
+
+    getters: {
+        fundsAvailable: state => {
+            return state.funds.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+        },
+        stocks: state => {
+            return state.stocks;
+        }
+    },
+
+    mutations: {
+        increaseFunds: (state, payload) => {
+            state.funds += payload;
+        },
+
+        decreaseFunds: (state, payload) => {
+            state.funds -= payload;
+        },
+
+        increaseStockQuantity: (state, payload) => {
+            var stock = state.stocks.filter(obj => {
+                return obj.name === payload.stockName
+            })[0];
+
+            stock.quantity += payload.stockQuantity;
+        },
+
+        decreaseStockQuantity: (state, payload) => {
+            var stock = state.stocks.filter(obj => {
+                return obj.name === payload.stockName
+            })[0];
+
+            stock.quantity -= payload.stockQuantity;
         }
     }
 });
