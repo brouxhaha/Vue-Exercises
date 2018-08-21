@@ -6,7 +6,7 @@
             <li class="nav__item"><router-link to="/stocks">Stocks</router-link></li>
         </ul>
         <ul class="nav__list nav__list--secondary">
-            <li class="nav__item cursor">End Day</li>
+            <li class="nav__item cursor" @click="endTradingDay">End Day</li>
             <li class="nav__item cursor" @click="showSaveLoadMenu">Save &amp; Load <small>▼</small>
                 <ul class="nav__sublist" v-show="this.showSubMenu">
                     <li class="nav__subitem cursor">Save Data</li>
@@ -20,6 +20,7 @@
 
 <script>
     import { mapGetters } from 'vuex';
+    import { mapMutations } from 'vuex';
 
     export default {
         data() {
@@ -30,15 +31,14 @@
         },
         computed: mapGetters([
             'fundsAvailable'
-        ])/*{
-            formatFunds(){
-                return this.fundsAvailable.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-            }
-        }*/,
+        ]),
         methods: {
             showSaveLoadMenu() {
                 this.showSubMenu = !this.showSubMenu;
-            }
+            },
+            ...mapMutations([
+                'endTradingDay'
+            ])
         }
     }
 </script>

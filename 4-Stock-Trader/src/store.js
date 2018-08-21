@@ -61,6 +61,14 @@ export const store = new Vuex.Store({
             })[0];
 
             stock.quantity -= payload.stockQuantity;
+        },
+
+        endTradingDay: state => {
+            state.stocks.forEach((stock) => {
+                let randNum = Math.floor(Math.random() * (40 - 0 + 1)) + 0;
+
+                stock.currentPrice = randNum > 20 ? Math.ceil(stock.currentPrice + (stock.currentPrice * (randNum / 100))) : Math.ceil(stock.currentPrice - (stock.currentPrice * (randNum / 100)));
+            });
         }
     }
 });
