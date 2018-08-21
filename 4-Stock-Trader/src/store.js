@@ -64,6 +64,9 @@ export const store = new Vuex.Store({
         },
 
         endTradingDay: state => {
+            const minNum = 0;
+            const maxNum = 40;
+            
             state.stocks.forEach((stock) => {
                 let randNum = Math.floor(Math.random() * (40 - 0 + 1)) + 0;
 
